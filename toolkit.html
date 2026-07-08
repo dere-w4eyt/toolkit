@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Toolkit Dashboard</title>
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --panel-bg: #111827;
+            --neon-pink: #ff79c6;
+            --cyan: #00f2fe;
+            --text-gray: #9ca3af;
+            --text-light: #f3f4f6;
+            --border-glow: #1f2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 30px 15px;
+            line-height: 1.6;
+        }
+
+        .dashboard-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1e1b4b, #111827);
+            border: 1px solid var(--border-glow);
+            border-bottom: 3px solid var(--neon-pink);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(255, 121, 198, 0.1);
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--text-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--neon-pink);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            transition: border 0.3s ease;
+        }
+
+        .panel:hover {
+            border-color: var(--cyan);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--cyan);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-glow);
+            padding-bottom: 8px;
+        }
+
+        .cost-display {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-light);
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .cost-sub {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .expense-list, .plan-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .expense-list li, .plan-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #1f2937;
+            font-size: 0.95rem;
+        }
+
+        .expense-list li:last-child, .plan-list li:last-child {
+            border-bottom: none;
+        }
+
+        .expense-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-tag {
+            color: var(--neon-pink);
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .quote-container {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .quote-container { grid-column: span 1; }
+        }
+
+        blockquote {
+            background: #11131e;
+            border-left: 4px solid var(--neon-pink);
+            margin: 15px 0;
+            padding: 15px;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+            color: var(--text-light);
+        }
+
+        .justification {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            padding-left: 5px;
+        }
+
+        .step-num {
+            color: var(--cyan);
+            font-weight: bold;
+            margin-right: 5px;
+            font-family: monospace;
+        }
+
+        .nav-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-glow);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid var(--neon-pink);
+            color: var(--neon-pink);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--neon-pink);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(255, 121, 198, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <header>
+        <h1>FINANCIAL TOOLKIT DASHBOARD</h1>
+        <div class="tagline">Pathway Target: Independent E-Commerce Developer</div>
+    </header>
+
+    <div class="metrics-grid">
+        <!-- COST PANEL -->
+        <div class="panel">
+            <h2>Estimated Program Cost</h2>
+            <div class="cost-display">$0.00</div>
+            <p class="cost-sub">Because I build web structures manually from source code files and deploy open-source AI infrastructure to scale operations, my initialization overhead requires zero debt accumulation or upfront program fees.</p>
+        </div>
+
+        <!-- EXPENSES PANEL -->
+        <div class="panel">
+            <h2>Future Financial Expense Matrix</h2>
+            <ul class="expense-list">
+                <li class="expense-item"><span>Hardware Maintenance Fund (PC Upgrades)</span> <span class="price-tag">$150 / yr</span></li>
+                <li class="expense-item"><span>Network Operations (High-Speed Internet)</span> <span class="price-tag">$80 / mo</span></li>
+                <li class="expense-item"><span>Domain Asset Renewals (halalstyles55.com / realgorilla.site)</span> <span class="price-tag">$15 / yr</span></li>
+                <li class="expense-item"><span>Emergency Tech Fund (Hardware Breakage Backup)</span> <span class="price-tag">$200 / yr</span></li>
+            </ul>
+        </div>
+
+        <!-- ACTION PLAN PANEL -->
+        <div class="panel">
+            <h2>Financial Action Plan</h2>
+            <ul class="plan-list">
+                <li><span class="step-num">[STEP 01]</span> Dedicate 1 hour every day to configuring free content distribution funnels via TikTok and Instagram, ensuring I gain platform traffic without spending money on paid advertising.</li>
+                <li><span class="step-num">[STEP 02]</span> Set up a completely separate, zero-fee digital savings container strictly for tracking business income so incoming website revenue never accidentally blends with casual day-to-day spending.</li>
+                <li><span class="step-num">[STEP 03]</span> Save exactly $15 a month from casual odd tasks or current web revenue into an isolated computer hardware reserve fund, keeping my asset pipeline safe if my primary coding PC needs parts replaced.</li>
+            </ul>
+        </div>
+
+        <!-- QUOTATIONS PANEL -->
+        <div class="panel quote-container">
+            <h2>Credible Financial Strategy Frameworks</h2>
+            
+            <blockquote>"The best way to save money is to not lose it in interest payments."<br>— Wealthsimple Financial Advisory</blockquote>
+            <p class="justification"><strong>Why this helps me:</strong> As an independent digital business owner, debt is an extreme liability. By hand-coding platform directories for free rather than using debt or loans to buy expensive store templates, I keep my profit margins clear and secure.</p>
+
+            <blockquote>"Do not save what is left after spending, but spend what is left after saving."<br>— Warren Buffett, Chairman of Berkshire Hathaway</blockquote>
+            <p class="justification"><strong>Why this helps me:</strong> Because starting up an independent e-commerce operation means revenue can vary greatly at the beginning, I must automatically isolate a set percentage of every single cash influx right away instead of waiting to see what is left over.</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION FOOTER -->
+    <div class="nav-footer">
+        <a href="index.html" class="btn">View Pathway Definition Hub</a>
+    </div>
+</div>
+
+</body>
+</html>
+
